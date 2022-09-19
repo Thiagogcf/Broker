@@ -1,8 +1,22 @@
-from peewee import SqliteDatabase, Model, CharField
-db = SqliteDatabase('aulax.db')
-class Pessoa(Model):
-    valor1 = CharField()
-    class Meta:
-        DataBase = db
+from datetime import datetime
+from peewee import (
+    SqliteDatabase, Model, TextField, ForeignKeyField,
+    DateTimeField, IntegerField
+)
 
-Pessoa.create()
+
+db = SqliteDatabase('notas.db')
+
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+
+class Pessoa(BaseModel):
+    tempo = IntegerField()
+
+
+
+
+Pessoa.create_table()
