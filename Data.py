@@ -13,10 +13,10 @@ class BaseModel(Model):
         database = db
 
 
-class Pessoa(BaseModel):
-    tempo = IntegerField()
+class Teste(BaseModel):
+    dado = IntegerField()
 
 
 
 
-Pessoa.create_table()
+Teste.create_table()
