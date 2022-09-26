@@ -1,7 +1,5 @@
-from datetime import datetime
 from peewee import (
-    SqliteDatabase, Model, TextField, ForeignKeyField,
-    DateTimeField, IntegerField
+    SqliteDatabase, Model, IntegerField
 )
 
 
