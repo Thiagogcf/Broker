@@ -3,7 +3,7 @@ from peewee import (
 )
 
 
-db = SqliteDatabase('notas.db')
+db = SqliteDatabase('Banco.db')
 
 
 class BaseModel(Model):
