@@ -1,12 +1,6 @@
-# import random
-#
-# from Data import Teste
-# valor = random.randint(1,6)
-# print(valor)
-# t1 = Teste(
-#     dado=valor
-# )
-# t1.save()
+import random
+
+from Data import Teste
 
 
 import random
@@ -35,6 +29,10 @@ def connect_mqtt() -> mqtt_client:
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+        t1 = Teste(
+            dado=msg.payload.decode()
+        )
+        t1.save()
 
     client.subscribe(topic)
     client.on_message = on_message

@@ -22,7 +22,7 @@ def connect_mqtt():
 
 
 def publish(client):
-    msg = 'Cachorro veio'
+    msg = str(random.randint(1,1000))
     result = client.publish(topic, msg)
     status = result[0]
     if status == 0:
