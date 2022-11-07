@@ -1,3 +1,4 @@
+import datetime
 import random
 
 from Data import Teste
@@ -30,8 +31,9 @@ def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
         t1 = Teste(
-            dado=msg.payload.decode()
+            dado=(msg.payload.decode())+" "+str(datetime.datetime.now())
         )
+
         t1.save()
 
     client.subscribe(topic)
