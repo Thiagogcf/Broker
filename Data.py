@@ -1,5 +1,8 @@
+import random
+from datetime import datetime
+
 from peewee import (
-    SqliteDatabase, Model, IntegerField
+    SqliteDatabase, Model, IntegerField,DateTimeField
 )
 
 
@@ -12,9 +15,14 @@ class BaseModel(Model):
 
 
 class Teste(BaseModel):
+    id = IntegerField()
     dado = IntegerField()
+    data = DateTimeField()
 
 
 
 
 Teste.create_table()
+for x in range(1000):
+    Teste.insert(id=x,dado=random.randint(1,10),data=datetime.now()).execute()
+    print(x)
