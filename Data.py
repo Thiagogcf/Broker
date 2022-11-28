@@ -23,6 +23,6 @@ class Teste(BaseModel):
 
 
 Teste.create_table()
-for x in range(1000):
-    Teste.insert(id=x,dado=random.randint(1,10),data=datetime.now()).execute()
+for x in range(2):
+    Teste.insert(dado=random.randint(1,10),data=datetime.now()).execute()
     print(x)

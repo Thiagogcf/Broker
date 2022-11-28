@@ -1,7 +1,11 @@
+import datetime
+from time import strptime, mktime
+
+import matplotlib
 from peewee import (
     SqliteDatabase, Model, IntegerField, DateTimeField
 )
-
+import matplotlib.pyplot as plt
 db = SqliteDatabase('Banco.db')
 
 
@@ -15,9 +19,16 @@ class Teste(BaseModel):
     dado = IntegerField()
     data = DateTimeField()
 a= Teste.select(Teste.data).execute()
-for x in a:
-    print(x)
-print(a.get())
-# lista = [item for item in Teste.select().dicts()]
-# for x in lista:
-#     print(x)
+lista = [item for item in Teste.select().dicts()]
+dados=[]
+datas = []
+for x in lista:
+    dados.append(x['dado'])
+    datas.append(x['data'])
+
+dates = matplotlib.dates.date2num(datas)
+plt.plot(datas,dados)
+plt.title(datetime.datetime.today())
+plt.gcf().autofmt_xdate()
+
+plt.show()
