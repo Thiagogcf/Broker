@@ -9,9 +9,10 @@ import time
 
 from paho.mqtt import client as mqtt_client
 
-broker = '191.233.31.141'
+
+broker = '191.233.247.255'
 port = 1883
-topic = "TESTE"
+topic = "teste"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 # python3.6
 def connect_mqtt() -> mqtt_client:
@@ -31,9 +32,9 @@ def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
         t1 = Teste(
-            dado=(msg.payload.decode())+" "+str(datetime.datetime.now())
+            dado=(msg.payload.decode())
         )
-
+        t1.data = datetime.datetime.now()
         t1.save()
 
     client.subscribe(topic)

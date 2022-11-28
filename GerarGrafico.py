@@ -30,6 +30,9 @@ for h in range(1,12):
     Teste.insert(dado=(random.randint(1,10)),data=(datetime(datetime.now().year, datetime.now().month, datetime.now().day,h))).execute()
 a= Teste.select(Teste.data).execute()
 lista = [item for item in Teste.select().dicts()]
+
+lista.sort(key = lambda x:x['data'])
+
 dados=[]
 datas = []
 for x in lista:
