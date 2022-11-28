@@ -35,13 +35,16 @@ datas = []
 for x in lista:
     dados.append(x['dado'])
     datas.append(x['data'])
-    Teste.insert(dado=x['dado'], data=x['data']).execute()
+    Total.insert(dado=x['dado'], data=x['data']).execute()
 
+nome = str(datetime.now().day)+'_'+str(datetime.now().month)+'_'+str(datetime.now().year)+'.png'
 dates = matplotlib.dates.date2num(datas)
 plt.plot(datas,dados)
-plt.title(datetime.today())
+plt.title(nome)
 plt.gcf().autofmt_xdate()
 
+plt.savefig(nome)
 plt.show()
+print(nome)
 Teste.delete().execute()
 

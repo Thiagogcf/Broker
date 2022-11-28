@@ -28,6 +28,6 @@ class Total(BaseModel):
 
 Teste.create_table()
 Total.create_table()
-for x in range(2):
-    Teste.insert(dado=random.randint(1,10),data=datetime.now()).execute()
-    print(x)
+# for x in range(2):
+#     Teste.insert(dado=random.randint(1,10),data=datetime.now()).execute()
+#     print(x)
