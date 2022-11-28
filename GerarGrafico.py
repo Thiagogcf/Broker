@@ -3,7 +3,7 @@ import random
 from time import strptime, mktime
 from datetime import datetime
 
-import matplotlib
+import matplotlib #3.6.2
 from peewee import (
     SqliteDatabase, Model, IntegerField, DateTimeField
 )
